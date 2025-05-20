@@ -1,7 +1,6 @@
 "use client";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import { useRouter } from "next/navigation";
 import { Avatar, Grid } from "@mui/material";
 import { formatStintDate } from "../utils";
 import theme from "@/theme";
@@ -13,18 +12,8 @@ export default function ExperienceItem({
 }: {
   experience: Experience;
 }) {
-  const router = useRouter();
   return (
-    <Grid
-      alignItems={"center"}
-      paddingBottom={2}
-      container
-      onClick={() =>
-        router.push(`experience/${experience.company.name.toLowerCase()}`)
-      }
-      tabIndex={0}
-      // TODO: onKeyDown={handleKeyDown} ... allow navigation with "Enter"
-    >
+    <Grid alignItems={"center"} paddingBottom={2} container tabIndex={0}>
       <Grid
         container
         size={12}
@@ -42,7 +31,7 @@ export default function ExperienceItem({
               boxShadow: 8,
               width: theme.spacing(AVATAR_SIZE),
               height: theme.spacing(AVATAR_SIZE),
-              padding: 1,
+              padding: 0.25,
               backgroundColor: "#fff",
             }}
           />

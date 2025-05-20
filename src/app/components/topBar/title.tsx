@@ -1,4 +1,4 @@
-import { Grid, Avatar, Typography } from "@mui/material";
+import { Grid, Avatar, Typography, Button } from "@mui/material";
 export default function Title() {
   return (
     <>
@@ -7,10 +7,12 @@ export default function Title() {
         justifyContent="center"
         sx={{ display: { xs: "none", md: "flex" } }}
       >
-        <Avatar
-          alt="Zachary Jarnagin"
-          src="https://dmotgjjj6jp2pbpr.public.blob.vercel-storage.com/zach-professional-2xX2dxKBLSsB5oEdDVgZvDt0eTEs6J.jpeg"
-        />
+        <Button href="/">
+          <Avatar
+            alt="Zachary Jarnagin"
+            src="https://dmotgjjj6jp2pbpr.public.blob.vercel-storage.com/zach-professional-2xX2dxKBLSsB5oEdDVgZvDt0eTEs6J.jpeg"
+          />
+        </Button>
       </Grid>
       <Grid size={"grow"} textAlign={"center"} justifyContent="center">
         <Typography
