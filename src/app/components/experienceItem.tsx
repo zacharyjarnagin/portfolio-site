@@ -43,6 +43,7 @@ export default function ExperienceItem({
               width: theme.spacing(AVATAR_SIZE),
               height: theme.spacing(AVATAR_SIZE),
               padding: 1,
+              backgroundColor: "#fff",
             }}
           />
         )}
