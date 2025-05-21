@@ -1,8 +1,16 @@
-import { Breadcrumbs, Link, Typography } from "@mui/material";
+import {
+  Breadcrumbs,
+  Link,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 import { getSortedBlogsData } from "../../../lib/blogs";
 
 export default async function Page() {
-  const allPostsData = getSortedBlogsData();
+  const allBlogsData = getSortedBlogsData();
   return (
     <div>
       <Breadcrumbs aria-label="breadcrumb">
@@ -12,17 +20,18 @@ export default async function Page() {
         <Typography>Blogs</Typography>
       </Breadcrumbs>
       <Typography variant="h1">My Blog</Typography>
-      {allPostsData.map(({ id, date, title }) => (
-        <li key={id}>
-          <a href={`blog/${id}`}>
-            {title}
-            <br />
-            {id}
-            <br />
-            {date}
-          </a>
-        </li>
-      ))}
+      <List>
+        {allBlogsData.map((blogData) => (
+          <ListItem key={blogData.slug}>
+            <ListItemButton href={`blog/${blogData.slug}`}>
+              <ListItemText
+                primary={blogData.frontMatter.title}
+                secondary={blogData.frontMatter.date}
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
     </div>
   );
 }
