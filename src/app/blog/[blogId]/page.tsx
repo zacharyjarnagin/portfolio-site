@@ -15,7 +15,7 @@ export default async function Page({
   params: Promise<{ blogId: string }>;
 }) {
   const { blogId } = await params;
-  const { frontMatter, content } = await getBlogContent(blogId);
+  const { data, content } = await getBlogContent(blogId);
   if (!blogId) return <div>404</div>;
   return (
     <div>
@@ -42,14 +42,14 @@ export default async function Page({
         <Link underline="hover" color="inherit" href="/blog">
           Blogs
         </Link>
-        <Typography>{frontMatter.title}</Typography>
+        <Typography>{data.title}</Typography>
       </Breadcrumbs>
       <Container maxWidth="md" sx={{ py: 4, overflowX: "hidden" }}>
         <Typography variant="h2" component="h1" gutterBottom>
-          {frontMatter.title}
+          {data.title}
         </Typography>
         <Typography variant="subtitle2" color="text.secondary">
-          {new Date(frontMatter.date).toLocaleDateString()}
+          {new Date(data.date).toLocaleDateString()}
         </Typography>
         <MarkdownAsync
           remarkPlugins={[remarkMath, remarkGfm]}
@@ -57,7 +57,7 @@ export default async function Page({
             [
               rehypeCitation,
               {
-                bibliography: frontMatter.bibliography,
+                bibliography: data.bibliographyFilePath,
                 path: process.cwd(),
                 csl: "apa",
                 lang: "en-US",

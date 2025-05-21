@@ -9,26 +9,29 @@ const referenceDirectory = "references"
 export function getBlogContent(slug: string): Blog {
   const fullPath = path.join(blogsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
+
+  // TypeScript and gray-matter do not appear to play well together. This warrants
+  // more investigation
+  const { data, content } = matter(fileContents) as unknown as Blog
 
   return {
     slug,
-    frontMatter: data,
+    data,
     content,
   };
 }
  
 export function getSortedBlogsData(): Blog[] {
-  // Get file names under /blogs
+  // Get file names under /blogs, ignoring the directory for bibliographies
   const fileNames = fs.readdirSync(blogsDirectory).filter((fileName) => fileName !== referenceDirectory);
   const allBlogsData: Blog[] = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '');
-    return getBlogContent(id);
+    // Remove ".md" from the file name and use it as the slug
+    const slug = fileName.replace(/\.md$/, '');
+    return getBlogContent(slug);
   });
   // Sort blogs by date
   return allBlogsData.sort((a, b) => {
-    if (a.frontMatter.date < b.frontMatter.date) {
+    if (a.data.date < b.data.date) {
       return 1;
     } else {
       return -1;

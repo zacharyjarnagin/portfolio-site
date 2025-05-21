@@ -25,8 +25,8 @@ export default async function Page() {
           <ListItem key={blogData.slug}>
             <ListItemButton href={`blog/${blogData.slug}`}>
               <ListItemText
-                primary={blogData.frontMatter.title}
-                secondary={blogData.frontMatter.date}
+                primary={blogData.data.title}
+                secondary={blogData.data.date}
               />
             </ListItemButton>
           </ListItem>

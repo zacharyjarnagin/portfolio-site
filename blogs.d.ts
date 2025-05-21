@@ -1,10 +1,11 @@
-type BlogFrontMatter = {
+type BlogData = {
   title: string;
   date: string;
+  bibliographyFilePath?: string;
 }
 
 type  Blog = {
   slug: string;
-  frontMatter: BlogFrontMatter;
+  data: BlogData;
   content: string;
 }

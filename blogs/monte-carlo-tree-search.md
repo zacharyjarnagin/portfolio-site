@@ -6,11 +6,13 @@ tags: ['AI', 'School Project']
 authors: ['default', 'michaelsteinberg']
 draft: false
 summary: 'Developing an intelligent chess engine'
-bibliography: blogs/references/monte-carlo-references.bib
+bibliographyFilePath: blogs/references/monte-carlo-references.bib
 images: ['/static/images/monte-carlo/catfish2_beating_sf_lvl_5.jpeg']
 ---
 
 _Institution_: Northeastern University, Khoury College of Computer Sciences
+
+_Co-Authored with_ Michael Steinberg
 
 # Abstract
 
@@ -539,6 +541,10 @@ We learned a lot from completing this project. First, we learned that it is impo
 In addition, we learned the efficiency of iterating through model architectures without simply jumping to the most powerful one we could find. We were able to make incremental yet meaningful improvements in each generation of Catfish, greatly improving over the performance of the previous generation.
 At the start of this project, we set out to play a game of chess intelligently. Based on our experimental results, it is apparent we were able to accomplish this with our exploration into convolutional neural networks and Monte Carlo Tree Search.
 
+<!-- 
+
+Unfortunately I cannot find these files on S3 or locally. Leaving commented out until they can be found.
+
 # Checkpoints & Data
 
 We stored the data used for training our models and their corresponding checkpoints on _Amazon Web Services S3_. These can be retrieved at the links below.
@@ -551,7 +557,7 @@ We stored the data used for training our models and their corresponding checkpoi
 * Catfish V2 Training Data: <https://zachjarchessstar.s3.amazonaws.com/outfile5>
 * Catfish V2 Validation Data: <https://zachjarchessstar.s3.amazonaws.com/outfile6>
 * Catfish V3 Training Data: <https://zachjarchessstar.s3.amazonaws.com/outfile7>
-* Catfish V3 Validation Data: <https://zachjarchessstar.s3.amazonaws.com/outfile8>
+* Catfish V3 Validation Data: <https://zachjarchessstar.s3.amazonaws.com/outfile8> -->
 
 **References:**
 
