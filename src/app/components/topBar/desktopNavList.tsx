@@ -9,7 +9,11 @@ export default function DesktopNavList({ pages }: { pages: Pages }) {
     <Grid size={2} sx={{ display: "flex" }}>
       {pages.map((page) =>
         page.icon ? (
-          <IconButton key={page.label} onClick={() => window.open(page.route)}>
+          <IconButton
+            key={page.label}
+            onClick={() => window.open(page.route)}
+            sx={{ display: { xs: "none", md: "inherit" } }}
+          >
             {page.icon}
           </IconButton>
         ) : (
