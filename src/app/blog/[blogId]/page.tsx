@@ -1,5 +1,5 @@
 import { Breadcrumbs, Container, Link, Typography } from "@mui/material";
-import { getBlogContent } from "../../../../lib/blogs";
+import { getBlogContent, getSortedBlogsData } from "../../../../lib/blogs";
 import remarkGfm from "remark-gfm";
 import { MarkdownAsync } from "react-markdown";
 import remarkMath from "remark-math";
@@ -8,6 +8,26 @@ import rehypeCitation from "rehype-citation";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github.css";
+
+export async function generateStaticParams() {
+  const blogs = getSortedBlogsData();
+  return blogs.map((blog: Blog) => ({
+    slug: blog.slug,
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ blogId: string }>;
+}) {
+  const { blogId } = await params;
+  const blog = getBlogContent(blogId);
+
+  return {
+    title: blog.data.title,
+  };
+}
 
 export default async function Page({
   params,
