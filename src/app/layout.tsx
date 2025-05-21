@@ -13,8 +13,11 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
-export default function RootLayout(props) {
-  const { children } = props;
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={roboto.variable}>
       <body>
