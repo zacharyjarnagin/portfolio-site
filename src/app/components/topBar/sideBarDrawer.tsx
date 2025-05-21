@@ -4,7 +4,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { Box } from "@mui/material";
+import { Box, ListItemIcon } from "@mui/material";
 
 export default function SideBarDrawer({
   pages,
@@ -27,8 +27,16 @@ export default function SideBarDrawer({
         <List>
           {pages.map((page) => (
             <ListItem key={page.label} disablePadding>
-              <ListItemButton onClick={() => router.push(page.route)}>
-                <ListItemText primary={page.label} />
+              <ListItemButton
+                onClick={() =>
+                  page.icon ? window.open(page.route) : router.push(page.route)
+                }
+              >
+                {page.icon ? (
+                  <ListItemIcon>{page.icon}</ListItemIcon>
+                ) : (
+                  <ListItemText primary={page.label} />
+                )}
               </ListItemButton>
             </ListItem>
           ))}

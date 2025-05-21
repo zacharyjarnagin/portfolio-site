@@ -9,10 +9,16 @@ import { useState } from "react";
 import Title from "./title";
 import DesktopNavList from "./desktopNavList";
 import HamburgerMenu from "./hamburgerMenu";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const pages: Pages = [
   { label: "Home", route: "/" },
   { label: "Blog", route: "/blog" },
+  {
+    label: "LinkedIn",
+    route: "https://www.linkedin.com/in/zachary-jarnagin/",
+    icon: <LinkedInIcon />,
+  },
 ];
 
 function TopBar() {

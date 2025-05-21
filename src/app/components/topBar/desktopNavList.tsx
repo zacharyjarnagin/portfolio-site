@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, IconButton } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/navigation";
 
@@ -7,16 +7,23 @@ export default function DesktopNavList({ pages }: { pages: Pages }) {
 
   return (
     <Grid size={2} sx={{ display: "flex" }}>
-      {pages.map((page) => (
-        <Button
-          key={page.label}
-          onClick={() => router.push(page.route)}
-          color="inherit"
-          sx={{ display: { xs: "none", md: "inherit" } }}
-        >
-          {page.label}
-        </Button>
-      ))}
+      {pages.map((page) =>
+        page.icon ? (
+          <IconButton key={page.label} onClick={() => window.open(page.route)}>
+            {page.icon}
+          </IconButton>
+        ) : (
+          <Button
+            key={page.label}
+            onClick={() => router.push(page.route)}
+            color="inherit"
+            sx={{ display: { xs: "none", md: "inherit" } }}
+            startIcon={page.icon}
+          >
+            {!page.icon && page.label}
+          </Button>
+        )
+      )}
     </Grid>
   );
 }
