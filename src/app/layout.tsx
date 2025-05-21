@@ -5,6 +5,8 @@ import theme from "../theme";
 import { Container } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import TopBar from "./components/topBar/topBar";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -27,6 +29,8 @@ export default function RootLayout({
             <TopBar />
             <Container maxWidth="lg" sx={{ paddingTop: 6 }}>
               {children}
+              <Analytics />
+              <SpeedInsights />
             </Container>
           </ThemeProvider>
         </AppRouterCacheProvider>

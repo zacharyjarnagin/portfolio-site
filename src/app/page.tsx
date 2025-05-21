@@ -1,5 +1,12 @@
 import { Container, Divider, Typography } from "@mui/material";
 import ExperienceTimeline from "./components/experienceTimeline";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Zachary Jarnagin",
+  description:
+    "Hello! I am a software engineer in Boston, MA and this is my personal website",
+};
 
 export default async function Home() {
   return (

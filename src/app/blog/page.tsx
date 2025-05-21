@@ -8,6 +8,12 @@ import {
   Typography,
 } from "@mui/material";
 import { getSortedBlogsData } from "../../../lib/blogs";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "My Blog",
+  description: "These are all my blogs",
+};
 
 export default async function Page() {
   const allBlogsData = getSortedBlogsData();
