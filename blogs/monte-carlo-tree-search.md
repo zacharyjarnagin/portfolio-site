@@ -7,7 +7,7 @@ authors: ['default', 'michaelsteinberg']
 draft: false
 summary: 'Developing an intelligent chess engine'
 bibliographyFilePath: blogs/references/monte-carlo-references.bib
-images: ['/static/images/monte-carlo/catfish2_beating_sf_lvl_5.jpeg']
+image: 'https://dmotgjjj6jp2pbpr.public.blob.vercel-storage.com/blogs/monte-carlo/catfish2_beating_sf_lvl_5-hBXSfD8ltRdtI1R6hUY9s5AeKbyddY.jpeg'
 ---
 
 _Institution_: Northeastern University, Khoury College of Computer Sciences
