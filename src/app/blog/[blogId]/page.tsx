@@ -8,6 +8,7 @@ import rehypeCitation from "rehype-citation";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github.css";
+import { formatDateStr } from "@/app/utils";
 
 export async function generateStaticParams() {
   const blogs = getSortedBlogsData();
@@ -69,7 +70,7 @@ export default async function Page({
           {data.title}
         </Typography>
         <Typography variant="subtitle2" color="text.secondary">
-          {new Date(data.date).toLocaleDateString()}
+          {formatDateStr(data.date, true)}
         </Typography>
         <MarkdownAsync
           remarkPlugins={[remarkMath, remarkGfm]}
